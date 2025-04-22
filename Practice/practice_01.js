@@ -12,23 +12,36 @@
 
 
 // Largest Common Prefix 
-let strs = ["flower", "flow", "flight"];
-if (strs.length === 0) {
-    console.log("");
-} else {
-    let st = "";
-    for (let i = 0; i < strs[0].length; i++) {
-        let char = strs[0][i];
-        // Check all other strings
-        for (let j = 1; j < strs.length; j++) {
-            console.log(strs[j][i], "letter to compare with char")
-            if (strs[j][i] !== char || i >= strs[j].length) {
+// let strs = ["flower", "flow", "flight"];
+// if (strs.length === 0) {
+//     console.log("");
+// } else {
+//     let st = "";
+//     for (let i = 0; i < strs[0].length; i++) {
+//         let char = strs[0][i];
+//         // Check all other strings
+//         for (let j = 1; j < strs.length; j++) {
+//             console.log(strs[j][i], "letter to compare with char")
+//             if (strs[j][i] !== char || i >= strs[j].length) {
                 
-                console.log(st); // Stop and print
-                return;
-            }
-        }
-        st += char;
+//                 console.log(st); // Stop and print
+//                 return;
+//             }
+//         }
+//         st += char;
+//     }
+//     console.log(st); // Common prefix
+// }
+
+
+// Check two strings are isomorphic or not 
+let s = "egg"
+let t = "add"
+
+
+    let ans = "";
+    for(let i = 0 ; i < s.length; i++){
+    console.log(s[i],"string of s ")
+       ans += s[i];
     }
-    console.log(st); // Common prefix
-}
+    console.log(ans===t)
