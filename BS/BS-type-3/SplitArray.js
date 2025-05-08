@@ -20,6 +20,9 @@ function splitArray(sum , split , a){
         return false;
      }
 
+
 }
+
+
 
 console.log(splitArray(5,3 , a))
