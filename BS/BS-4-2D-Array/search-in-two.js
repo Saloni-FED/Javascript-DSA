@@ -10,7 +10,8 @@ function isPresent(arr,tar){
   while(low <= high){
   let mid = Math.floor((low + high)/2);
   if(arr[mid] === tar) {
-   return true
+    console.log(mid,"mid is here")
+   return mid;
   }
   else if(arr[mid] > tar){
     high = mid - 1;
@@ -19,14 +20,15 @@ function isPresent(arr,tar){
     low = mid + 1;
   }
   }
-  return false
+  return false;
 }
 
 function TwoDSearch(mat , target, n ,m ){
    for(let i = 0 ; i < n ; i++){
-    if(isPresent(mat[i], target)){
-        return true
-    }
+    let ans = isPresent(mat[i], target)
+     if(ans != false){
+        return [i+1, ans + 1]
+     }
    }
 
    return false
