@@ -98,5 +98,5 @@ let deleteTail = Node.deleteTail(deletedHead);
 // Node.traverseDD(deleteTail);
 
 // Delete Kth element 
-let deleteKthElement = Node.deleteKEl(deleteTail,2)
-Node.traverseDD(deleteKthElement )
+let remKthElement = Node.deleteKEl(deleteTail,2)
+Node.traverseDD(remKthElement )
