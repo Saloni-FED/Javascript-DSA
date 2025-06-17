@@ -1,4 +1,4 @@
-class Node {
+ class Node {
   constructor(data, next = null, prev = null) {
     this.data = data;
     this.next = next;
@@ -68,9 +68,9 @@ class Node {
     let nextEl = temp.next;
     if (prevEl === null && nextEl === null) return null;
     else if (prevEl === null) {
-      Node.deleteHead(head);
+      return Node.deleteHead(head);
     } else if (nextEl === null) {
-      Node.deleteTail(head);
+      return Node.deleteTail(head);
     } else {
       prevEl.next = nextEl;
       nextEl.prev = prevEl;
@@ -78,6 +78,24 @@ class Node {
       temp.prev = null;
     }
     return head;
+  }
+  static removeNode(node){
+    let front = node.next;
+    let back = node.prev;
+    if(front == null){
+        back.next = null;
+        node.next = null;
+        return;
+    }
+
+    front.prev = back;
+    back.next = front
+    node.prev = node.next = null;
+    return
+  }
+  // Inserting before tail
+  static insertBeforeTail(head){
+
   }
 }
 
@@ -97,6 +115,34 @@ let deletedHead = Node.deleteHead(newNodeHead);
 let deleteTail = Node.deleteTail(deletedHead);
 // Node.traverseDD(deleteTail);
 
-// Delete Kth element 
-let remKthElement = Node.deleteKEl(deleteTail,2)
-Node.traverseDD(remKthElement )
+// Delete Kth element
+let remKthElement = Node.deleteKEl(deleteTail, 2);
+// Node.traverseDD(remKthElement);
+
+// Delete Node (Node cannot be Head)
+let remNode = Node.removeNode(remKthElement.next)
+// Node.traverseDD(remKthElement);
+// Inserting
+let newHead = Node.insertionHead(remKthElement, 5)
+let newOneHead = Node.insertionHead(newHead, 6);
+
+// Node.traverseDD(newOneHead);
+
+
+
+
+
+// ----------------------------------------------
+// Insertion
+class Insertion{
+  static insertBefTail(head){
+   let temp = head;
+    while(temp.next === null){
+      temp = temp.next
+    }
+    console.log(temp)
+  }
+}
+
+
+console.log(Insertion.insertBefTail(newOneHead))
