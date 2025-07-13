@@ -90,27 +90,49 @@
 // }
 
 // Rearrange Negative and Positive
-function rearrange(arr , n){
+function rearrange(arr, n) {
   let pos = [];
   let neg = [];
-  let temp = []
-  for(let i = 0 ; i < n ; i++){
-    if(arr[i] < 0){
-      neg.push(arr[i])
-    }
-    else{
-      pos.push(arr[i])
+  let temp = [];
+  for (let i = 0; i < n; i++) {
+    if (arr[i] < 0) {
+      neg.push(arr[i]);
+    } else {
+      pos.push(arr[i]);
     }
   }
 
-  for(let i = 0 ; i < pos.length ; i++){
-    arr[2 * i] = pos[i]
-    arr[2*i + 1] = neg[i]
+  for (let i = 0; i < pos.length; i++) {
+    arr[2 * i] = pos[i];
+    arr[2 * i + 1] = neg[i];
   }
-  console.log(arr)
-  
+  console.log(arr);
 }
-let arr = [1,2,-4,-5]
-let n = 4
+// let arr = [1,2,-4,-5]
+// let n = 4
 
-console.log(rearrange(arr ,n))
+// console.log(rearrange(arr ,n))
+
+// Find the longest consqutive sequence
+function linearSearch(arr, num) {
+  for (let i = 0; i < arr.length; i++) {
+    if (num == arr[i]) return true;
+  }
+  return false;
+}
+function longConseSum(arr) {
+  let longest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let x = arr[i];
+    let cnt = 1;
+    while (linearSearch(arr, x + 1)) {
+      x += 1;
+      cnt++;
+    }
+    console.log(cnt, "cnt is here");
+    longest = Math.max(cnt, longest);
+  }
+  return longest;
+}
+let arr = [100, 200, 1, 3, 2, 4];
+console.log(longConseSum(arr), "Longest is here");
