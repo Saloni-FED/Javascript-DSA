@@ -54,3 +54,5 @@ head.next.next.next.next = new Node(5);
 head.next.next.next.next.next = new Node(6);
 
 console.log(findMid(head));
+
+
